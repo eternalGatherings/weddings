@@ -31,9 +31,16 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="loader-overlay" id="loaderOverlay" aria-live="polite" role="status">
+      <div class="loader-card">
+        <div class="loader-spinner" aria-hidden="true"></div>
+        <p class="loader-copy">Gathering memories and images before the invitation unfolds.</p>
+      </div>
+    </div>
+
     <div class="background-layer"></div>
 
-    <main class="page-shell">
+    <main class="page-shell page-hidden">
       <section class="hero card reveal">
         <img class="flower flower-top" src="Images/Top-Right-Flower.svg" alt="Decorative flower" />
         <img class="flower flower-bottom" src="Images/Bottom-Left-Flower.svg" alt="Decorative flower" />

@@ -50,16 +50,44 @@ const preloadImages = () => {
   return Promise.all(promises);
 };
 
+const LOADER_MIN_DURATION = 3000;
+
+const showLoader = () => {
+  loaderOverlay.classList.remove('hidden');
+  pageShell.classList.add('page-hidden');
+  pageShell.classList.remove('loaded');
+};
+
 const hideLoader = () => {
+  if (loaderOverlay.classList.contains('hidden')) {
+    return;
+  }
+
   loaderOverlay.classList.add('hidden');
   pageShell.classList.add('loaded');
   pageShell.classList.remove('page-hidden');
 };
 
+const waitForPageReady = () => {
+  const imageLoadPromise = preloadImages().catch(() => {});
+  const minimumDisplayPromise = new Promise((resolve) => {
+    window.setTimeout(resolve, LOADER_MIN_DURATION);
+  });
+  const pageLoadPromise = new Promise((resolve) => {
+    if (document.readyState === 'complete') {
+      resolve();
+    } else {
+      window.addEventListener('load', resolve, { once: true });
+    }
+  });
+
+  return Promise.all([imageLoadPromise, minimumDisplayPromise, pageLoadPromise]);
+};
+
 window.addEventListener('DOMContentLoaded', () => {
+  showLoader();
   resetScrollPosition();
-  preloadImages()
-    .catch(() => {})
+  waitForPageReady()
     .finally(() => {
       hideLoader();
       initializeReveal();

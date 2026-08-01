@@ -337,7 +337,7 @@ body {
     box-shadow: 0 10px 24px rgba(95, 67, 53, 0.08);
 }
 
-.media-frame iframe {
+.media-frame video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -345,6 +345,7 @@ body {
     border: 0;
     display: block;
     background: #fff;
+    object-fit: cover;
 }
 
 .reveal {

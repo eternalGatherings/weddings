@@ -320,7 +320,9 @@ body {
 .detail-card,
 .schedule-card,
 .photo-section,
-.action-card {
+.action-card,
+.timeline-card,
+.gallery-card {
     padding: 24px 20px;
 }
 
@@ -328,10 +330,45 @@ body {
 .schedule-card h2,
 .photo-section h2,
 .action-card h2,
+.timeline-card h2,
+.gallery-card h2,
 .media-card h2 {
     margin-top: 0;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.45rem;
+}
+
+.timeline-list {
+    display: grid;
+    gap: 12px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(181, 106, 79, 0.06);
+    border: 1px solid rgba(127, 67, 48, 0.1);
+}
+
+.timeline-time {
+    min-width: 72px;
+    font-weight: 700;
+    color: var(--accent-dark);
+}
+
+.timeline-item h3 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    color: var(--accent-dark);
+}
+
+.timeline-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
 }
 
 .schedule-card ul {
@@ -343,14 +380,17 @@ body {
 }
 
 .schedule-card li {
-    display: flex;
-    gap: 12px;
+    display: block;
     color: var(--muted);
+    line-height: 1.6;
+    word-break: break-word;
 }
 
 .schedule-card span {
+    display: block;
     font-weight: 700;
     color: var(--accent-dark);
+    margin-top: 2px;
 }
 
 .photo-section {
@@ -363,6 +403,60 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 18px;
+}
+
+.gallery-intro {
+    margin: 0 0 14px;
+    color: var(--muted);
+}
+
+.gallery-carousel {
+    display: grid;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.gallery-track {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.gallery-slide {
+    display: none;
+}
+
+.gallery-slide.active {
+    display: block;
+}
+
+.gallery-slide img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border: 1px solid rgba(127, 67, 48, 0.1);
+}
+
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(127, 67, 48, 0.3);
+    cursor: pointer;
+    padding: 0;
+}
+
+.dot.active {
+    background: var(--accent-dark);
+    transform: scale(1.1);
 }
 
 .actions {

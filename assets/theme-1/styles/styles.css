@@ -30,7 +30,7 @@ body {
 .background-layer {
     position: fixed;
     inset: 0;
-    background-image: url("Images/BG-Texture.svg");
+    background-image: url("../images/BG-Texture.svg");
     background-size: cover;
     background-position: center;
     opacity: 0.18;
@@ -129,7 +129,7 @@ body {
     text-align: center;
     padding: 36px 18px 42px;
     background-color: rgba(255, 248, 243, 0.92);
-    background-image: url("Images/BG-Texture.svg");
+    background-image: url("../images/BG-Texture.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
